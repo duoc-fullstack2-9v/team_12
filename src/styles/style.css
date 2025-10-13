@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+header {
+    background-color: #000000;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 20px;
+}
+
+
+header nav {
+
+
+    display: flex;
+    gap: 35px;
+    margin: 10px 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #ff0000;
+}
+
+.menu{ 
+background-color: #000000;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.form-registro {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-registro h2 {
+  background: #ddd;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-registro label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.form-registro input,
+.form-registro select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.selects {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-registro button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.form-registro button:hover {
+  background: #333;
+}
+
+main {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+/*ESTILO PARA EL INICIO DE SESION*/
+
+.form-login {
+  background: #f5f5f5;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-login h2 {
+  background: #ddd;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-login label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.form-login input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
+
+.separador {
+    color: white;  
+    margin: 0 10px;
+}
+
+.form-login button{
+   display: block;
+  text-align: center;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body{
+  background-color: #000000;
+}

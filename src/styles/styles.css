@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+header nav {
+    display: flex;
+    gap: 35px;
+}
+
+header nav a,
+header nav button {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+header nav a:hover,
+header nav button:hover {
+    color: #ff0000;
+}
+
+/* Main container */
+main {
+    background-color: #000000;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- SECCIÓN HERO --- */
+.hero {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: #f2f2f2 !important;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    margin: 20px !important;
+    gap: 40px !important;
+    width: calc(100% - 40px) !important;
+    box-sizing: border-box !important;
+}
+
+.hero-text {
+    flex: 1 !important;
+    max-width: 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.hero-text h1 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 3rem !important;
+    margin-bottom: 20px !important;
+    color: #000 !important;
+}
+
+.hero-text p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+    color: #000 !important;
+}
+
+.btn-ver {
+    padding: 12px 30px !important;
+    background: white !important;
+    border: 2px solid black !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    transition: all 0.3s !important;
+    width: fit-content !important;
+}
+
+.btn-ver:hover {
+    background: black !important;
+    color: white !important;
+}
+
+.hero-image {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 50% !important;
+}
+
+.hero-image img {
+    width: 100% !important;
+    max-width: 500px !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* Título DESTACADO */
+main > h1 {
+    text-align: center !important;
+    margin: 40px 0 20px 0 !important;
+    font-size: 2.5rem !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    letter-spacing: 2px !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* --- SECCIÓN PRODUCTOS --- */
+.productos {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    margin: 20px !important;
+    padding: 20px !important;
+    width: calc(100% - 40px) !important;
+}
+
+.producto {
+    background: #f9f9f9 !important;
+    text-align: center !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    transition: transform 0.3s !important;
+}
+
+.producto:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+.producto img {
+    width: 100% !important;
+    max-width: 250px !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    margin-bottom: 15px !important;
+}
+
+.producto h3 {
+    color: #007BFF !important;
+    font-size: 1rem !important;
+    margin: 10px 0 5px !important;
+    min-height: 40px !important;
+}
+
+.producto p {
+    font-size: 0.9rem !important;
+    color: #555 !important;
+    margin: 5px 0 !important;
+}
+
+.producto span {
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    color: #000 !important;
+    margin: 10px 0 !important;
+}
+
+.producto button {
+    margin-top: 10px !important;
+    padding: 10px 20px !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    cursor: pointer !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    transition: all 0.3s !important;
+}
+
+.producto button:hover {
+    background-color: #333 !important;
+    transform: scale(1.05) !important;
+}
+
+/* User actions */
+.user-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-actions a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.user-actions a:hover {
+    color: #ff0000; 
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.oferta {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .hero-text {
+        max-width: 100% !important;
+    }
+    
+    .hero-image {
+        max-width: 100% !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem !important;
+    }
+    
+    .productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        margin: 10px !important;
+        padding: 10px !important;
+    }
+    
+    main > h1 {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos {
+        grid-template-columns: 1fr !important;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    header nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
