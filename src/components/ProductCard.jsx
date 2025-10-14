@@ -14,7 +14,7 @@ const ProductCard = ({ product, variant = 'default' }) => {
       <div style={{
         backgroundColor: '#f9f9f9',
         border: '1px solid #ddd',
-        padding: '20px',
+        padding: '30px',
         textAlign: 'center',
         borderRadius: '5px',
         display: 'flex',
