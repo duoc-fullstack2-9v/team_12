@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Hoodie zip Supreme",
+    "price": 70000,
+    "image": "/poleron.jfif",
+    "description": "Hoodie con cierre Supreme, 100% algodón"
+  },
+  {
+    "id": 2,
+    "name": "Gorro New ERA",
+    "price": 40000,
+    "image": "/gorro.jpg",
+    "description": "Gorra New ERA edición limitada"
+  },
+  {
+    "id": 3,
+    "name": "Supreme-Maradona-Tee-Black",
+    "price": 75000,
+    "image": "/Supreme-Maradona-Tee-Black.avif",
+    "description": "Camiseta tributo a Maradona"
+  },
+  {
+    "id": 4,
+    "name": "supreme-x-umbro-snap-sleeve-jacket-black",
+    "price": 80000,
+    "image": "/supreme-x-umbro-snap-sleeve-jacket-black-ss23j57-black_1.jpg",
+    "description": "Chaqueta colaboración Supreme x Umbro"
+  }
+]
