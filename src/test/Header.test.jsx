@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import Header from './Header'
+import Header from '../components/Header'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { BrowserRouter } from 'react-router-dom'

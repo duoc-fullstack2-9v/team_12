@@ -2,21 +2,22 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { AuthProvider } from '../context/AuthContext'
 import { CartProvider } from '../context/CartContext'
-import Home from './Home'
+import Products from '../pages/Products'
 
-describe('Home Page', () => {
-  test('renderiza el contenido principal de la página Home', () => {
+describe('Products Page', () => {
+  test('renderiza la página de productos', () => {
     render(
       <MemoryRouter>
         <AuthProvider>
           <CartProvider>
-            <Home />
+            <Products />
           </CartProvider>
         </AuthProvider>
       </MemoryRouter>
     )
 
-    // ✅ Busca un texto que sí está visible en Home.jsx
-    expect(screen.getByText(/destacado/i)).toBeInTheDocument()
+    // Usamos getAllByText porque hay varios "Productos"
+    const elementos = screen.getAllByText(/productos/i)
+    expect(elementos.length).toBeGreaterThan(0)
   })
 })

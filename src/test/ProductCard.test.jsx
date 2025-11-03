@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import ProductCard from './ProductCard'
+import ProductCard from '../components/ProductCard'
 import { useCart } from '../context/CartContext'
 
 // 🔹 Mock del contexto (una sola vez al inicio)
