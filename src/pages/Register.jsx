@@ -1,20 +1,25 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import Header from '../components/Header';
-import { validateName, validateEmail, validatePassword, validateMatch } from '../utils/validation';
-import '../styles/style.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import Header from "../components/Header";
+import {
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateMatch,
+} from "../utils/validation";
+import "../styles/style.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    nombre: '',
-    correo: '',
-    correo2: '',
-    pass: '',
-    pass2: '',
-    tel: '',
-    region: '',
-    comuna: ''
+    nombre: "",
+    correo: "",
+    correo2: "",
+    pass: "",
+    pass2: "",
+    tel: "",
+    region: "",
+    comuna: "",
   });
 
   const { register } = useAuth();
@@ -23,7 +28,7 @@ const Register = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -43,7 +48,11 @@ const Register = () => {
       return;
     }
 
-    const emailMatchError = validateMatch(formData.correo, formData.correo2, 'correos');
+    const emailMatchError = validateMatch(
+      formData.correo,
+      formData.correo2,
+      "correos"
+    );
     if (emailMatchError) {
       alert(emailMatchError);
       return;
@@ -55,7 +64,11 @@ const Register = () => {
       return;
     }
 
-    const passwordMatchError = validateMatch(formData.pass, formData.pass2, 'contraseñas');
+    const passwordMatchError = validateMatch(
+      formData.pass,
+      formData.pass2,
+      "contraseñas"
+    );
     if (passwordMatchError) {
       alert(passwordMatchError);
       return;
@@ -67,11 +80,11 @@ const Register = () => {
         nombre: formData.nombre,
         email: formData.correo,
         password: formData.pass,
-        tel: formData.tel
+        tel: formData.tel,
       });
-      
-      alert('Registro exitoso. ¡Ya puedes iniciar sesión!');
-      navigate('/login');
+
+      alert("Registro exitoso. ¡Ya puedes iniciar sesión!");
+      navigate("/login");
     } catch (err) {
       alert(err.message);
     }
@@ -150,14 +163,24 @@ const Register = () => {
           />
 
           <div className="selects">
-            <select name="region" value={formData.region} onChange={handleChange} required>
+            <select
+              name="region"
+              value={formData.region}
+              onChange={handleChange}
+              required
+            >
               <option value="">-- Selecciona tu región --</option>
               <option>Región Metropolitana de Santiago</option>
               <option>Región de Atacama</option>
               <option>Región de Ñuble</option>
             </select>
 
-            <select name="comuna" value={formData.comuna} onChange={handleChange} required>
+            <select
+              name="comuna"
+              value={formData.comuna}
+              onChange={handleChange}
+              required
+            >
               <option value="">-- Selecciona la comuna --</option>
               <option>Linces</option>
               <option>Llay-Llay</option>

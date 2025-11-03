@@ -1,59 +1,60 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import ProductCard from '../components/ProductCard'
-import { useCart } from '../context/CartContext'
+import { render, screen, fireEvent } from "@testing-library/react";
+import ProductCard from "../components/ProductCard";
+import { useCart } from "../hooks/useCart";
+import { describe, test, expect, beforeAll, afterAll, vi } from "vitest";
 
 // 🔹 Mock del contexto (una sola vez al inicio)
-vi.mock('../context/CartContext', () => ({
+vi.mock("../context/CartContext", () => ({
   useCart: vi.fn(),
-}))
+}));
 
 // 🔹 Datos de ejemplo
 const mockProduct = {
-  name: 'Producto de prueba',
+  name: "Producto de prueba",
   price: 9990,
-  image: 'https://via.placeholder.com/150',
-}
+  image: "https://via.placeholder.com/150",
+};
 
-describe('ProductCard Component', () => {
+describe("ProductCard Component", () => {
   beforeAll(() => {
     // Mock de alert para evitar error en jsdom
-    vi.spyOn(window, 'alert').mockImplementation(() => {})
-  })
+    vi.spyOn(window, "alert").mockImplementation(() => {});
+  });
 
   afterAll(() => {
-    vi.restoreAllMocks()
-  })
+    vi.restoreAllMocks();
+  });
 
-  test('renderiza correctamente la versión por defecto', () => {
+  test("renderiza correctamente la versión por defecto", () => {
     // Mock vacío (no necesitamos que haga nada)
-    useCart.mockReturnValue({ addToCart: vi.fn() })
+    useCart.mockReturnValue({ addToCart: vi.fn() });
 
-    render(<ProductCard product={mockProduct} />)
+    render(<ProductCard product={mockProduct} />);
 
-    expect(screen.getByText('Producto de prueba')).toBeInTheDocument()
-    expect(screen.getByText(/\$[\s]*9[.,]990/)).toBeInTheDocument()
-    expect(screen.getByText('Agregar al carrito')).toBeInTheDocument()
-  })
+    expect(screen.getByText("Producto de prueba")).toBeInTheDocument();
+    expect(screen.getByText(/\$[\s]*9[.,]990/)).toBeInTheDocument();
+    expect(screen.getByText("Agregar al carrito")).toBeInTheDocument();
+  });
 
   test('renderiza correctamente la versión de página (variant="page")', () => {
-    useCart.mockReturnValue({ addToCart: vi.fn() })
+    useCart.mockReturnValue({ addToCart: vi.fn() });
 
-    render(<ProductCard product={mockProduct} variant="page" />)
+    render(<ProductCard product={mockProduct} variant="page" />);
 
-    expect(screen.getByText('Producto de prueba')).toBeInTheDocument()
-    expect(screen.getByText(/\$[\s]*9[.,]990/)).toBeInTheDocument()
-    expect(screen.getByText('Agregar al carro')).toBeInTheDocument()
-  })
+    expect(screen.getByText("Producto de prueba")).toBeInTheDocument();
+    expect(screen.getByText(/\$[\s]*9[.,]990/)).toBeInTheDocument();
+    expect(screen.getByText("Agregar al carro")).toBeInTheDocument();
+  });
 
-  test('ejecuta addToCart al hacer click en el botón', () => {
-    const addToCartMock = vi.fn()
+  test("ejecuta addToCart al hacer click en el botón", () => {
+    const addToCartMock = vi.fn();
     // ⬅️ usamos mockReturnValueOnce para definir el mock solo en este test
-    useCart.mockReturnValueOnce({ addToCart: addToCartMock })
+    useCart.mockReturnValueOnce({ addToCart: addToCartMock });
 
-    render(<ProductCard product={mockProduct} />)
-    fireEvent.click(screen.getByText('Agregar al carrito'))
+    render(<ProductCard product={mockProduct} />);
+    fireEvent.click(screen.getByText("Agregar al carrito"));
 
-    expect(addToCartMock).toHaveBeenCalledTimes(1)
-    expect(addToCartMock).toHaveBeenCalledWith(mockProduct)
-  })
-})
+    expect(addToCartMock).toHaveBeenCalledTimes(1);
+    expect(addToCartMock).toHaveBeenCalledWith(mockProduct);
+  });
+});
