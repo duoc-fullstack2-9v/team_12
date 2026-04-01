@@ -1,9 +1,33 @@
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
+import { getAllProducts } from '../services/productosService';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
   const navigate = useNavigate();
+  
+  // ✅ Agregar estado para productos
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // ✅ Cargar productos del backend cuando se monta el componente
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        const data = await getAllProducts();
+        setProductos(data);
+        console.log('Productos cargados:', data);
+      } catch (error) {
+        console.error('Error cargando productos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadProducts();
+  }, []);
 
   const featuredProducts = [
     {
@@ -35,6 +59,11 @@ const Home = () => {
   return (
     <div style={{ backgroundColor: '#000000', minHeight: '100vh', width: '100%' }}>
       <Header showOffer={true} />
+      
+      {/* ✅ Mostrar cantidad de productos cargados desde el backend */}
+      <div style={{ color: 'white', textAlign: 'center', padding: '10px' }}>
+        {loading ? 'Cargando productos...' : `Productos en BD: ${productos.length}`}
+      </div>
       
       <div style={{ backgroundColor: '#000000', padding: '0', margin: '0' }}>
         {/* Sección Hero - FORZAR LAYOUT HORIZONTAL */}
@@ -131,7 +160,7 @@ const Home = () => {
           DESTACADO
         </h1>
 
-        {/* Grid de productos */}
+        {/* Grid de productos - puedes usar productos del backend o los hardcoded */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
@@ -140,13 +169,20 @@ const Home = () => {
           padding: '20px',
           width: 'calc(100% - 40px)'
         }}>
+          {/* ✅ Opción 1: Usar productos hardcoded */}
           {featuredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
+          
+          {/* ✅ Opción 2: Usar productos del backend (comenta lo de arriba y descomenta esto)
+          {productos.slice(0, 4).map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          */}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Home;
